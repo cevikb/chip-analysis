@@ -29,45 +29,31 @@ samtools view -H sample_id.bam | grep '@RG'
 **Output:**
 - Text output showing read group (`@RG`) lines from the BAM header
 
-## Step X — Package BWA Reference Genome Index (Windows)
+
+## Step 3 — Package BWA Reference Genome Index
 
 In this step, 10 reference/index files were packaged into a single `.tar.gz` archive.  
-No computation was performed; the files were only compressed.
+The process was performed on a Windows operating system using **Command Prompt (cmd.exe)**.
 
-**Source files (example paths):**
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.fasta
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.fasta.pac
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.fasta.ann
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.known_indels.vcf.gz.tbi
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.fasta.amb
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.dict
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.fasta.fai
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.known_indels.vcf.gz
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.fasta.bwt
-- parabricks_sample/Ref/Hxomo_sapiens_assembly38.fasta.sa
+**Source files (from `parabricks_sample/Ref/`):**
+- Hxomo_sapiens_assembly38.fasta
+- Hxomo_sapiens_assembly38.fasta.pac
+- Hxomo_sapiens_assembly38.fasta.ann
+- Hxomo_sapiens_assembly38.known_indels.vcf.gz.tbi
+- Hxomo_sapiens_assembly38.fasta.amb
+- Hxomo_sapiens_assembly38.dict
+- Hxomo_sapiens_assembly38.fasta.fai
+- Hxomo_sapiens_assembly38.known_indels.vcf.gz
+- Hxomo_sapiens_assembly38.fasta.bwt
+- Hxomo_sapiens_assembly38.fasta.sa
+
+**Command (cmd.exe):**
+```cmd
+tar -czvf Ref.bwa-index.tar.gz -C parabricks_sample/Ref .
+```
 
 **Output:**
-- `Ref.bwa-index.tar.gz`
+- `Ref.bwa-index.tar.gz` (archive containing the 10 files listed above)
 
-**Command (Windows PowerShell — using tar.exe):**
-```powershell
-tar -czvf Ref.bwa-index.tar.gz -C parabricks_sample/Ref `
-  Hxomo_sapiens_assembly38.fasta `
-  Hxomo_sapiens_assembly38.fasta.pac `
-  Hxomo_sapiens_assembly38.fasta.ann `
-  Hxomo_sapiens_assembly38.known_indels.vcf.gz.tbi `
-  Hxomo_sapiens_assembly38.fasta.amb `
-  Hxomo_sapiens_assembly38.dict `
-  Hxomo_sapiens_assembly38.fasta.fai `
-  Hxomo_sapiens_assembly38.known_indels.vcf.gz `
-  Hxomo_sapiens_assembly38.fasta.bwt `
-  Hxomo_sapiens_assembly38.fasta.sa
-```
+**Note:** The reference/index files were obtained from DNAnexus Community and packaged into `Ref.bwa-index.tar.gz` using Windows Command Prompt (cmd.exe).
 
-**Validation (list archive contents):**
-```powershell
-tar -tzf Ref.bwa-index.tar.gz
-# Exactly 10 files should be listed
-```
-
-**Note:** The files were obtained from DNAnexus Community and packaged on Windows terminal.
