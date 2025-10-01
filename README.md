@@ -65,3 +65,20 @@ tar -czvf Ref.bwa-index.tar.gz -C parabricks_sample/Ref .
 
 **Note:** The reference/index files were obtained from DNAnexus Community and packaged into `Ref.bwa-index.tar.gz` using Windows Command Prompt (cmd.exe).
 
+
+## Step 4 — Variant Calling (BAM → VCF)
+
+**Tool:** Mutectcaller (Parabricks accelerated, provided by `nvidia_ukb`) — Version 4.1.0  
+
+**Input:**  
+- `Ref.bwa-index.tar.gz` (BWA Reference Genome Index, generated in Step 3)  
+- `sample_id.bam` (BAM file containing tumor reads)  
+- `UKB_XXXXX_XXXXX` (sample name for tumor reads)  
+
+**Command:**  
+- No explicit command; analysis initiated via **UK Biobank RAP interface** by selecting *Start Analysis*.  
+
+**Output:**  
+- `sample_id.vcf` (VCF file containing somatic variants)  
+
+
