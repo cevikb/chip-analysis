@@ -122,3 +122,20 @@ version 1.0
 #   - sample_id.snpEff.vcf.gz.tbi   (index of annotated variants)
 ###################################################################################
 
+###################################################################################
+# Step 6 — Variant Filtering by Target Regions
+# Tool: Swiss Army Knife (UK Biobank RAP app) — bcftools v1.21
+#
+# Command:
+#   bcftools view -R xgen_plus_spikein.GRCh38.bed sample_id.snpEff.vcf.gz > sample_id_filtered.vcf
+#
+# Input:
+#   - sample_id.snpEff.vcf.gz       (annotated variants from Step 5)
+#   - sample_id.snpEff.vcf.gz.tbi   (index file for annotated variants)
+#   - xgen_plus_spikein.GRCh38.bed  (target regions BED file)
+#
+# Output:
+#   - sample_id_filtered.vcf        (VCF file with variants filtered by target regions)
+###################################################################################
+
+
