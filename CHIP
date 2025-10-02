@@ -1,0 +1,105 @@
+version 1.0
+
+###################################################################################
+## Version 2025-10-02
+## Contact: <your name> <your.email@example.com>
+## Project: CHIP / Variant calling workflow (UK Biobank RAP)
+###################################################################################
+
+###################################################################################
+# Requires
+#   1) UK Biobank Research Analysis Platform (RAP) access
+#   2) Swiss Army Knife app (preloaded: samtools v1.21, grep, etc.)
+#   3) Reference genome: GRCh38 (e.g., GRCh38_full_analysis_set_plus_decoy_hla.fa)
+#   4) Windows machine with Command Prompt (cmd.exe) providing tar.exe
+#   5) BWA Reference Genome Index component files (listed below)
+#   6) Mutectcaller (Parabricks accelerated) provided by nvidia_ukb, Version 4.1.0
+###################################################################################
+
+###################################################################################
+# Inputs (anonymized examples)
+#   - sample_id_23143_0_0.cram           # CRAM input (UKB—not shared)
+#   - GRCh38_full_analysis_set_plus_decoy_hla.fa
+#   - BWA index files (see Step 3 list below)
+#   - UKB_XXXXX_XXXXX                    # sample name (anonymized)
+###################################################################################
+
+###################################################################################
+# Outputs (anonymized examples)
+#   - sample_id.bam
+#   - UKB_XXXXX_XXXXX.vcf  (or sample_id.vcf, depending on your naming policy)
+###################################################################################
+
+###################################################################################
+# Step 1 — CRAM → BAM conversion
+# Tool: Swiss Army Knife (UK Biobank RAP app) — samtools v1.21
+#
+# Command entered in Swiss Army Knife:
+#   samtools view -T GRCh38_full_analysis_set_plus_decoy_hla.fa -b sample_id_23143_0_0.cram > sample_id.bam
+#
+# Input:
+#   - sample_id_23143_0_0.cram
+#   - GRCh38_full_analysis_set_plus_decoy_hla.fa
+#
+# Output:
+#   - sample_id.bam
+#   - GRCh38_full_analysis_set_plus_decoy_hla.fa.fai (generated automatically by samtools)
+###################################################################################
+
+###################################################################################
+# Step 2 — Extract Read Group (RG) information from BAM
+# Tool: Swiss Army Knife (UK Biobank RAP app) — samtools v1.21 + grep
+#
+# Command entered in Swiss Army Knife:
+#   samtools view -H sample_id.bam | grep '@RG'
+#
+# Input:
+#   - sample_id.bam  (from Step 1)
+#
+# Output:
+#   - Console/text output showing '@RG' lines from BAM header
+###################################################################################
+
+###################################################################################
+# Step 3 — Package BWA Reference Genome Index (Windows cmd.exe)
+# Purpose: Bundle existing reference/index files into a single tar.gz for RAP apps.
+#
+# Source files (from parabricks_sample/Ref/):
+#   Hxomo_sapiens_assembly38.fasta
+#   Hxomo_sapiens_assembly38.fasta.pac
+#   Hxomo_sapiens_assembly38.fasta.ann
+#   Hxomo_sapiens_assembly38.known_indels.vcf.gz.tbi
+#   Hxomo_sapiens_assembly38.fasta.amb
+#   Hxomo_sapiens_assembly38.dict
+#   Hxomo_sapiens_assembly38.fasta.fai
+#   Hxomo_sapiens_assembly38.known_indels.vcf.gz
+#   Hxomo_sapiens_assembly38.fasta.bwt
+#   Hxomo_sapiens_assembly38.fasta.sa
+#
+# Command (cmd.exe):
+#   tar -czvf Ref.bwa-index.tar.gz -C parabricks_sample/Ref .
+#
+# Output:
+#   - Ref.bwa-index.tar.gz  (contains the 10 files listed above)
+#
+# Note:
+#   The reference/index files were obtained from DNAnexus Community and packaged
+#   into Ref.bwa-index.tar.gz using Windows Command Prompt (cmd.exe).
+###################################################################################
+
+###################################################################################
+# Step 4 — Variant Calling (BAM → VCF) with Mutectcaller (Parabricks)
+# Tool: Mutectcaller (Parabricks accelerated), provided by nvidia_ukb — Version 4.1.0
+# Platform: UK Biobank RAP (GPU-accelerated)
+#
+# Invocation:
+#   No explicit CLI; initiated via RAP UI by selecting "Start Analysis".
+#
+# Inputs:
+#   - Ref.bwa-index.tar.gz                (from Step 3)
+#   - sample_id.bam                       (tumor reads)
+#   - UKB_XXXXX_XXXXX                     (sample name, anonymized)
+#
+# Outputs:
+#   - sample_id.vcf  (somatic variant calls)
+###################################################################################
