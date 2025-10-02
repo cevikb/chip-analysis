@@ -103,3 +103,22 @@ version 1.0
 # Outputs:
 #   - sample_id.vcf  (somatic variant calls)
 ###################################################################################
+
+###################################################################################
+# Step 5 — Variant Annotation
+# Tool: SnpEff Annotate (v2.1.2) — UK Biobank RAP
+#
+# Command:
+#   No explicit command; analysis initiated via RAP interface by selecting "Start Analysis".
+#
+# Reference genome:
+#   GRCh38.p13 release from NCBI RefSeq
+#
+# Input:
+#   - sample_id.vcf   (VCF file generated in Step 4)
+#
+# Output:
+#   - sample_id.snpEff.vcf.gz       (annotated variants)
+#   - sample_id.snpEff.vcf.gz.tbi   (index of annotated variants)
+###################################################################################
+
