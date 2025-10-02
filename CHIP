@@ -137,5 +137,77 @@ version 1.0
 # Output:
 #   - sample_id_filtered.vcf        (VCF file with variants filtered by target regions)
 ###################################################################################
+###################################################################################
+# Step 7 — Population Frequency Filtering (gnomAD v4.1 Exome)
+# Tool: bgzip, bcftools, tabix (htslib suite)
+###################################################################################
+
+# Step 7.1 — Decompress gnomAD files (.vcf.bgz → .vcf)
+# Example command (chromosome 20):
+#   bgzip -d gnomad.exomes.v4.1.sites.chr20.vcf.bgz
+#
+# Input:
+#   - gnomad.exomes.v4.1.sites.chr20.vcf.bgz
+#
+# Output:
+#   - gnomad.exomes.v4.1.sites.chr20.vcf
+
+###################################################################################
+
+# Step 7.2 — Re-compress VCFs into .vcf.gz format
+# Example command (chromosome 20):
+#   bgzip gnomad.exomes.v4.1.sites.chr20.vcf
+#
+# Input:
+#   - gnomad.exomes.v4.1.sites.chr20.vcf
+#
+# Output:
+#   - gnomad.exomes.v4.1.sites.chr20.vcf.gz
+
+###################################################################################
+
+# Step 7.3 — Apply allele frequency filter (AF > 0.001)
+# Example command (chromosome 20):
+#   bcftools view -i 'INFO/AF>0.001' gnomad.exomes.v4.1.sites.chr20.vcf.gz -Oz -o high_af_gnomad20.vcf.gz
+#
+# Input:
+#   - gnomad.exomes.v4.1.sites.chr20.vcf.gz
+#
+# Output:
+#   - high_af_gnomad20.vcf.gz
+#
+# Note:
+#   The same filtering step was repeated for all chromosomes (1–22 and X).
+
+###################################################################################
+
+# Step 7.4 — Index filtered VCF files
+# Example command (chromosome 20):
+#   tabix -p vcf high_af_gnomad20.vcf.gz
+#
+# Input:
+#   - high_af_gnomad20.vcf.gz
+#
+# Output:
+#   - high_af_gnomad20.vcf.gz.tbi
+#
+# Note:
+#   Index files (.tbi) were generated for all chromosomes.
+
+###################################################################################
+
+# Step 7.5 — Merge filtered VCFs across chromosomes
+# Command:
+#   bcftools concat -a -Oz -o combined_high_af_gnomad.vcf.gz \
+#   high_af_gnomad{1..22}.vcf.gz high_af_gnomadX.vcf.gz
+#
+# Input:
+#   - high_af_gnomad1.vcf.gz … high_af_gnomad22.vcf.gz
+#   - high_af_gnomadX.vcf.gz
+#   - (corresponding .tbi index files for each)
+#
+# Output:
+#   - combined_high_af_gnomad.vcf.gz   (merged multi-chromosome VCF)
+###################################################################################
 
 
