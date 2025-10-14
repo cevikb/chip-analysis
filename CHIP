@@ -207,7 +207,7 @@ version 1.0
 #   - (corresponding .tbi index files for each)
 #
 # Output:
-#   - combined_high_af_gnomad.vcf.gz   (merged multi-chromosome VCF)
+#   - combined_high_af_gnomad2.vcf.gz   (merged multi-chromosome VCF)
 ###################################################################################
 
 ###################################################################################
