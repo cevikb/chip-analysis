@@ -210,4 +210,35 @@ version 1.0
 #   - combined_high_af_gnomad.vcf.gz   (merged multi-chromosome VCF)
 ###################################################################################
 
+###################################################################################
+# Step 8 — Compress and Index Filtered VCF Files
+# Tool: Swiss Army Knife (UK Biobank RAP app) — bgzip and tabix
+###################################################################################
+
+# Step 8.1 — Compress filtered VCF files (.vcf → .vcf.gz)
+# Tool: Swiss Army Knife (UK Biobank RAP app) — bgzip
+#
+# Command (executed within Swiss Army Knife):
+#   for file in *.vcf; do bgzip -c "${file}" > "output_${file}.vcf.gz"; done
+#
+# Input:
+#   - sample_id_filtered.vcf  (and all other .vcf files generated in Step 6)
+#
+# Output:
+#   - output_sample_id_filtered.vcf.vcf.gz  (and corresponding compressed files for each sample)
+
+###################################################################################
+
+# Step 8.2 — Index compressed VCF files (.vcf.gz → .vcf.gz.tbi)
+# Tool: Swiss Army Knife (UK Biobank RAP app) — tabix
+#
+# Command (executed within Swiss Army Knife):
+#   for file in *.vcf.gz; do tabix -p vcf "${file}"; done
+#
+# Input:
+#   - output_sample_id_filtered.vcf.vcf.gz  (and all other .vcf.gz files from Step 8.1)
+#
+# Output:
+#   - output_sample_id_filtered.vcf.vcf.gz.tbi  (and corresponding .tbi index files)
+###################################################################################
 
