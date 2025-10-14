@@ -257,3 +257,17 @@ version 1.0
 # Output:
 #   - output_output_sample_id_filtered.vcf.vcf   (filtered VCF excluding common variants)
 ###################################################################################
+
+###################################################################################
+# Step 10 — Apply Depth, Allele Count, and Frequency Filters
+# Tool: Swiss Army Knife (UK Biobank RAP app) — bcftools
+#
+# Command:
+#   for file in *.vcf; do bcftools view -i 'FMT/DP >= 20 & FMT/AD[:1] >= 3 & FMT/F1R2[:1] > 0 & FMT/F2R1[:1] > 0 & FMT/AF >= 0.02' "${file}" > "output_${file}.vcf"; done
+#
+# Input:
+#   - output_output_sample_id_filtered.vcf.vcf   (filtered VCF files generated in Step 9)
+#
+# Output:
+#   - output_output_output_output_sample_id.vcf.gz.vcf.vcf.vcf   (quality-filtered VCF files)
+###################################################################################
