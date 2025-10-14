@@ -242,3 +242,18 @@ version 1.0
 #   - output_sample_id_filtered.vcf.vcf.gz.tbi  (and corresponding .tbi index files)
 ###################################################################################
 
+###################################################################################
+# Step 9 — Remove High-Frequency Variants Using gnomAD Reference
+# Tool: Swiss Army Knife (UK Biobank RAP app) — bcftools
+#
+# Command:
+#   for file in *.vcf.gz; do bcftools view -T ^combined_high_af_gnomad2.vcf.gz "${file}" -o "output_${file%.vcf.gz}.vcf"; done
+#
+# Input:
+#   - output_sample_id_filtered.vcf.vcf.gz       (compressed sample VCFs from Step 8)
+#   - output_sample_id_filtered.vcf.vcf.gz.tbi   (index files from Step 8)
+#   - combined_high_af_gnomad2.vcf.gz            (merged high-frequency variant set generated in Step 7.5)
+#
+# Output:
+#   - output_output_sample_id_filtered.vcf.vcf   (filtered VCF excluding common variants)
+###################################################################################
