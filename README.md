@@ -2,8 +2,8 @@
 
 **Version:** 1.0  
 **Date:** October 2025  
-**Author:** <your name>  
-**Contact:** <your.email@example.com>  
+**Author:** <Burcu Cevik>  
+**Contact:** <burcukcevik@example.com>  
 **Project:** CHIP / Variant Calling Workflow (UK Biobank RAP)
 
 ---
