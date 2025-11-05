@@ -48,7 +48,9 @@ All steps were executed using official RAP apps such as *Swiss Army Knife*, *Mut
 ---
 
 ## Citation
-Çevik, B. (2025). *CHIP Analysis Workflow.* GitHub Repository, Version 1.0.
+Çevik, B. (2025). Clonal hematopoiesis is associated with the risk of Alzheimer’s disease in the UK biobank apoe ε3/ε3 genotype cohort 
+
+https://meetings-api.hematology.org/api/abstract/vmpreview/293068
 
 ---
 
