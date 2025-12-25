@@ -48,7 +48,14 @@ All steps were executed using official RAP apps such as *Swiss Army Knife*, *Mut
 ---
 
 ## Citation
-Çevik, B. (2025). Clonal hematopoiesis is associated with the risk of Alzheimer’s disease in the UK biobank apoe ε3/ε3 genotype cohort 
+
+If you use this workflow or adapt parts of it in your research, please cite the related publication:
+
+Çevik B, et al. *Clonal hematopoiesis is associated with the risk of Alzheimer's disease in the UK Biobank APOE ε3/ε3 genotype cohort*. **Blood**. 2025.  
+https://doi.org/10.1182/blood-2025-4939
+
+Related abstract / conference record:
+https://www.sciencedirect.com/science/article/pii/S0006497125076864
 
 https://meetings-api.hematology.org/api/abstract/vmpreview/293068
 
