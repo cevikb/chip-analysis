@@ -57,8 +57,6 @@ https://doi.org/10.1182/blood-2025-4939
 Related abstract / conference record:
 https://www.sciencedirect.com/science/article/pii/S0006497125076864
 
-https://meetings-api.hematology.org/api/abstract/vmpreview/293068
-
 ---
 
 ## License
