@@ -63,7 +63,8 @@ version 1.0
 ###################################################################################
 # Step 3 — Package BWA Reference Genome Index (Windows cmd.exe)
 # Purpose: Bundle existing reference/index files into a single tar.gz for RAP apps.
-#
+#Source archive (downloaded manually):
+https://s3.amazonaws.com/parabricks.sample/parabricks_sample.tar.gz
 # Source files (from parabricks_sample/Ref/):
 #   Hxomo_sapiens_assembly38.fasta
 #   Hxomo_sapiens_assembly38.fasta.pac
@@ -77,10 +78,12 @@ version 1.0
 #   Hxomo_sapiens_assembly38.fasta.sa
 #
 # Command (cmd.exe):
-#   tar -czvf Ref.bwa-index.tar.gz -C parabricks_sample/Ref .
+#  tar -czvf Ref.bwa-index.tar.gz -C parabricks_sample/Ref
 #
 # Output:
 #   - Ref.bwa-index.tar.gz  (contains the 10 files listed above)
+# Zenodo archive:
+DOI: https://doi.org/10.5281/zenodo.XXXXXXX
 #
 # Note:
 #   The reference/index files were obtained from DNAnexus Community and packaged
