@@ -83,7 +83,7 @@ https://s3.amazonaws.com/parabricks.sample/parabricks_sample.tar.gz
 # Output:
 #   - Ref.bwa-index.tar.gz  (contains the 10 files listed above)
 # Zenodo archive:
-DOI: https://doi.org/10.5281/zenodo.XXXXXXX
+DOI: https://doi.org/10.5281/zenodo.18713167
 #
 # Note:
 #   The reference/index files were obtained from DNAnexus Community and packaged
