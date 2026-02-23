@@ -77,9 +77,6 @@ https://s3.amazonaws.com/parabricks.sample/parabricks_sample.tar.gz
 #   Hxomo_sapiens_assembly38.fasta.bwt
 #   Hxomo_sapiens_assembly38.fasta.sa
 #
-# Command (cmd.exe):
-#  tar -czvf Ref.bwa-index.tar.gz -C parabricks_sample/Ref
-#
 # Output:
 #   - Ref.bwa-index.tar.gz  (contains the 10 files listed above)
 # Zenodo archive:
