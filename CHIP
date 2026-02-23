@@ -132,10 +132,16 @@ DOI: https://doi.org/10.5281/zenodo.18713167
 # Input:
 #   - sample_id.snpEff.vcf.gz       (annotated variants from Step 5)
 #   - sample_id.snpEff.vcf.gz.tbi   (index file for annotated variants)
-#   - xgen_plus_spikein.GRCh38.bed  (target regions BED file)
+#   - custom_xgen_plus_spikein.GRCh38.bed  (target regions BED file)
 #
 # Output:
 #   - sample_id_filtered.vcf        (VCF file with variants filtered by target regions)
+# Target regions file (reproducibility)
+
+The custom BED file used for region filtering is publicly available on Zenodo:
+https://doi.org/10.5281/zenodo.18740999
+
+This file was derived from the UK Biobank WES target regions (Resource 3803) and modified to include only genes relevant to this study.
 ###################################################################################
 ###################################################################################
 # Step 7 — Population Frequency Filtering (gnomAD v4.1 Exome)
