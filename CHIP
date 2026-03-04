@@ -17,20 +17,6 @@ version 1.0
 ###################################################################################
 
 ###################################################################################
-# Inputs (anonymized examples)
-#   - sample_id_23143_0_0.cram           # CRAM input (UKB—not shared)
-#   - GRCh38_full_analysis_set_plus_decoy_hla.fa
-#   - BWA index files (see Step 3 list below)
-#   - UKB_XXXXX_XXXXX                    # sample name (anonymized)
-###################################################################################
-
-###################################################################################
-# Outputs (anonymized examples)
-#   - sample_id.bam
-#   - UKB_XXXXX_XXXXX.vcf  (or sample_id.vcf, depending on your naming policy)
-###################################################################################
-
-###################################################################################
 # Step 1 — CRAM → BAM conversion
 # Tool: Swiss Army Knife (UK Biobank RAP app) — samtools v1.21
 #
