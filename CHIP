@@ -206,9 +206,7 @@ This file was derived from the UK Biobank WES target regions (Resource 3803) and
 
 # Step 7.5 — Merge filtered VCFs across chromosomes
 # Command:
-#   bcftools concat -a -Oz -o combined_high_af_gnomad.vcf.gz \
-#   high_af_gnomad{1..22}.vcf.gz high_af_gnomadX.vcf.gz
-#
+#   bcftools concat -a -Oz -o combined_high_af_gnomad.vcf.gz high_af_gnomad{1..22}.vcf.gz high_af_gnomadX.vcf.gz
 # Input:
 #   - high_af_gnomad1.vcf.gz … high_af_gnomad22.vcf.gz
 #   - high_af_gnomadX.vcf.gz
@@ -261,6 +259,7 @@ This file was derived from the UK Biobank WES target regions (Resource 3803) and
 #   - output_sample_id_filtered.vcf.vcf.gz       (compressed sample VCFs from Step 8)
 #   - output_sample_id_filtered.vcf.vcf.gz.tbi   (index files from Step 8)
 #   - combined_high_af_gnomad2.vcf.gz            (merged high-frequency variant set generated in Step 7.5)
+#   - combined_high_af_gnomad2.vcf.gz.tbi
 #
 # Output:
 #   - output_output_sample_ID_filtered.vcf.vcf   (filtered VCF excluding common variants)
